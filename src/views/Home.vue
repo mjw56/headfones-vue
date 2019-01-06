@@ -7,13 +7,13 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import Vue from 'vue';
 import { client } from '../helpers/graphql';
 import { SearchResultsQuery } from '../queries';
 
-@Component({
+export default {
   methods: {
-    async search(event) {
+    async search(event: any) {
       const vm: any = this;
       console.log(vm.searchInput);
 
@@ -26,6 +26,6 @@ import { SearchResultsQuery } from '../queries';
       }
     }
   }
-})
-export default class Home extends Vue {}
+};
+
 </script>

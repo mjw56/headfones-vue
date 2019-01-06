@@ -5,14 +5,17 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import Vue from 'vue';
 
-@Component({
+export default {
   methods: {
-    login(event) {
-      window.location.replace('http://localhost:3004/auth/connect');
+    login(event: any) {
+      const url = process.env.NODE_ENV === 'production'
+        ? process.env.VUE_APP_PROD_SERVER
+        : process.env.VUE_APP_DEV_SERVER;
+      window.location.replace(`${url}/auth/connect`);
     }
   }
-})
-export default class Login extends Vue {}
+};
+
 </script>
