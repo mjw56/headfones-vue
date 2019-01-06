@@ -16,7 +16,9 @@ export default new Router({
       beforeEnter(to, from, next) {
         if (!!getCookie('jwt') === false) {
           next('/login');
+          return;
         }
+        next();
       }
     },
     {
