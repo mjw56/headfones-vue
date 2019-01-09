@@ -1,6 +1,5 @@
 <template>
-  <div class="home">
-    <h1>Home</h1>
+  <div class="search">
     <input v-model="searchInput" />
     <button v-on:click="search">search</button>
   </div>
@@ -11,14 +10,16 @@ import Vue from 'vue';
 import { client } from '../helpers/graphql';
 import { SearchResultsQuery } from '../queries';
 
-export default {
+export default Vue.extend({
+  data: () => ({
+    searchInput: ''
+  }),
   methods: {
     async search(event: any) {
-      const vm: any = this;
-      console.log(vm.searchInput);
+      console.log(this.searchInput);
 
       try {
-        const res = await client.request(SearchResultsQuery, { query: vm.searchInput });
+        const res = await client.request(SearchResultsQuery, { query: this.searchInput });
         console.log(res);
 
       } catch (e) {
@@ -26,6 +27,6 @@ export default {
       }
     }
   }
-};
+});
 
 </script>

@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Home from './views/Home.vue';
+import Search from './views/Search.vue';
 import { getCookie } from './helpers/cookies';
 
 Vue.use(Router);
@@ -11,8 +11,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: Home,
+      name: 'search',
+      component: Search,
       beforeEnter(to, from, next) {
         if (!!getCookie('jwt') === false) {
           next('/login');

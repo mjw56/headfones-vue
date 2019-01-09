@@ -6,14 +6,12 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import { SERVER_URL } from '../helpers/constants';
 
 export default {
   methods: {
     login(event: any) {
-      const url = process.env.NODE_ENV === 'production'
-        ? process.env.VUE_APP_PROD_SERVER
-        : process.env.VUE_APP_DEV_SERVER;
-      window.location.replace(`${url}/auth/connect`);
+      window.location.replace(`${SERVER_URL}/auth/connect`);
     }
   }
 };
