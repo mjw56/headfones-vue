@@ -12,7 +12,8 @@ const Player = Vue.extend({
     }),
     methods: {},
   mounted() {
-      this.playerService = new PlayerService();
+      this.playerService = PlayerService;
+      this.playerService.embed();
   }
 });
 

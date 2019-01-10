@@ -1,8 +1,9 @@
 <template>
-  <div class="search-results-card">
+  <div class="search-results-card" 
+    v-on:click="handleCardClick"
+    :data-uri="uri">
     <img v-bind:src="image.url" />
     {{title}}
-    {{uri}}
   </div>
 </template>
 
@@ -19,15 +20,25 @@
     object-fit: cover;
     width: 100%;
   }
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 </style>
 
 <script lang="ts">
 import Vue from 'vue';
+import PlayerService from '../services/Player';
 
 const SearchResultCard = Vue.extend({
     data: () => ({}),
-    methods: { },
+    methods: {
+      handleCardClick(e: Event) {
+        const uri = this.$el.getAttribute('data-uri');
+        PlayerService.play(uri);
+      }
+    },
     props: ['image', 'title', 'uri']
 });
 

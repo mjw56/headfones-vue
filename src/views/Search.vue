@@ -1,11 +1,19 @@
 <template>
   <div class="search">
-    <input v-model="searchInput" />
-    <button v-on:click="search">search</button>
+    <div class="search-task-bar">
+      <input v-model="searchInput" />
+      <button v-on:click="search">search</button>
+    </div>
 
     <search-results :results="results" />
   </div>
 </template>
+
+<style lang="scss">
+.search-task-bar {
+  margin: 20px 0;
+}
+</style>
 
 <script lang="ts">
 import Vue from 'vue';
