@@ -3,7 +3,6 @@ import App from './App.vue';
 import Player from './components/Player.vue';
 import SearchResults from './components/SearchResults.vue';
 import SearchResultsCardBlock from './components/SearchResultsCardBlock.vue';
-import SearchResultsCard from './components/SearchResultsCard.vue';
 import router from './router';
 import store from './store';
 import './registerServiceWorker';
