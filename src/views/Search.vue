@@ -1,9 +1,9 @@
 <template>
   <div class="search">
-    <div class="search-task-bar">
+    <form class="search-task-bar" @submit.prevent="search">
       <input v-model="searchInput" />
       <button v-on:click="search">search</button>
-    </div>
+    </form>
 
     <search-results :results="results" />
   </div>
