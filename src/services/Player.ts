@@ -58,7 +58,7 @@ class Player {
                 cb(user.accessToken);
             },
             name: 'headfon.es',
-            volume: 0.5,
+            volume: 0.3,
         });
 
         this.player.addListener('ready', ({ device_id }: any) => {

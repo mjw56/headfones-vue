@@ -1,15 +1,24 @@
 <template>
   <div class="search-results-card-block">
-    <search-results-card
-        v-for="item in list" :key="item.id"
-        :image="item.images[0]" 
-        :title="item.name"
-        :uri="item.uri"></search-results-card>
+    <h1>{{title}}</h1>
+    <div class="search-results-card-block__grid">
+      <search-results-card
+          v-for="item in list" :key="item.id"
+          :image="item.images[0]" 
+          :title="item.name"
+          :uri="item.uri"></search-results-card>
+    </div>
   </div>
 </template>
 
 <style lang="scss">
 .search-results-card-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 20px 0;
+}
+.search-results-card-block__grid {
   display: grid;
   width: 100%;
   grid-template-columns: repeat(2, 1fr);
@@ -43,7 +52,7 @@ const SearchResultsCardBlock = Vue.extend({
     },
     data: () => ({}),
     methods: { },
-    props: ['list']
+    props: ['list', 'title']
 });
 
 Vue.component('search-results-card-block', SearchResultsCardBlock);
