@@ -17,6 +17,7 @@
     "no-consecutive-blank-lines": false,
     "experimentalDecorators": true,
     "no-console": false,
-    "trailing-comma": false
+    "trailing-comma": false,
+    "variable-name": false
   }
 }
