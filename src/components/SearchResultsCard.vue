@@ -3,7 +3,7 @@
     v-on:click="handleCardClick"
     :data-uri="uri">
     <img v-bind:src="image.url" />
-    {{title}}
+    <span>{{title}}</span>
   </div>
 </template>
 
@@ -19,6 +19,7 @@
     z-index: 1;
     object-fit: cover;
     width: 100%;
+    flex-shrink: 0;
   }
 
   &:hover {
