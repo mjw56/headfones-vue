@@ -12,6 +12,12 @@
   </div>
 </template>
 
+<style lang="scss">
+.search-results {
+    padding: 0 30px;
+}
+</style>
+
 <script lang="ts">
 import Vue from 'vue';
 

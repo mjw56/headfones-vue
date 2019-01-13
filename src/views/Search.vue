@@ -1,8 +1,7 @@
 <template>
   <div class="search">
     <form class="search-task-bar" @submit.prevent="search">
-      <input v-model="searchInput" />
-      <button v-on:click="search">search</button>
+      <input v-model="searchInput" placeholder="Search for an album, artist, song ..." />
     </form>
 
     <search-results :results="results" />
@@ -11,7 +10,23 @@
 
 <style lang="scss">
 .search-task-bar {
-  margin: 20px 0;
+  margin: 0 0 20px 0;
+
+  input {
+    height: 100px;
+    width: 100%;
+    font-size: 60px;
+    padding: 0 30px;
+    color: #2c3e50;
+    font-weight: bold;
+    outline: 0;
+    border: 0;
+    border-bottom: 1px solid #2c3e50;
+
+    &::placeholder {
+      color: #999;
+    }
+  }
 }
 </style>
 

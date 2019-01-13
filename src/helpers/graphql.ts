@@ -1,6 +1,7 @@
 import { GraphQLClient } from 'graphql-request';
+import { SERVER_URL } from '../helpers/constants';
 
-const client = new GraphQLClient(`http://localhost:3004/graphql`, {
+const client = new GraphQLClient(`${SERVER_URL}/graphql`, {
   headers: { },
   credentials: 'include'
 });
