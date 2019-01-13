@@ -13,10 +13,11 @@
   margin: 0 0 20px 0;
 
   input {
-    height: 100px;
-    width: 100%;
-    font-size: 60px;
-    padding: 0 30px;
+    padding: 0 15px;
+    margin: 0;
+    height: 60px;
+    width: calc(100% - 30px);
+    font-size: 20px;
     color: #2c3e50;
     font-weight: bold;
     outline: 0;
@@ -25,6 +26,15 @@
 
     &::placeholder {
       color: #999;
+    }
+  }
+
+  @media (min-width: 700px) {
+    input {
+      padding: 0 30px;
+      width: calc(100% - 60px);
+      height: 100px;
+      font-size: 60px;
     }
   }
 }
@@ -38,7 +48,7 @@ import { SearchResultsQuery } from '../queries';
 export default Vue.extend({
   data: () => ({
     searchInput: '',
-    results: { data: null }
+    results: { data: { search: { } } }
   }),
   methods: {
     async search(event: any) {

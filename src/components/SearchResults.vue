@@ -24,7 +24,11 @@ import Vue from 'vue';
 const SearchResults = Vue.extend({
     data: () => ({}),
     methods: { },
-    props: ['results']
+    props: {
+        results: {
+            default: { data: { search: {} } }
+        }
+    }
 });
 
 Vue.component('search-results', SearchResults);
