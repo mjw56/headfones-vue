@@ -55,7 +55,38 @@ class Player {
         });
     }
 
-    private init() {
+    public pause = () => {
+        console.log(this);
+        this.player.pause().then(() => {
+            console.log('Paused!');
+        });
+    }
+
+    public resume = () => {
+        this.player.resume().then(() => {
+            console.log('Resumed!');
+        });
+    }
+
+    public togglePlay = () => {
+        this.player.togglePlay().then(() => {
+            console.log('Play Toggled!');
+        });
+    }
+
+    public previousTrack = () => {
+        this.player.previousTrack().then(() => {
+            console.log('Set to previous track!');
+        });
+    }
+
+    public nextTrack = () => {
+        this.player.nextTrack().then(() => {
+            console.log('Skipped to next track!');
+        });
+    }
+
+    private init = () => {
         this.player = new window.Spotify.Player({
             getOAuthToken: async (cb: any) => {
                 const user = await fetch(`${SERVER_URL}/token`, { credentials: 'include' }).then(
@@ -71,7 +102,7 @@ class Player {
         this.player.connect();
     }
 
-    private setupListeners() {
+    private setupListeners = () => {
         this.player.addListener('ready', ({ device_id }: any) => {
             this.deviceId = device_id;
         });
@@ -131,39 +162,9 @@ class Player {
         });
     }
 
-    private pause() {
-        this.player.pause().then(() => {
-            console.log('Paused!');
-        });
-    }
-
-    private resume() {
-        this.player.resume().then(() => {
-            console.log('Resumed!');
-        });
-    }
-
-    private togglePlay() {
-        this.player.togglePlay().then(() => {
-            console.log('Play Toggled!');
-        });
-    }
-
     private seek(position: number) {
         this.player.seek(position).then(() => {
             console.log(`Changed position to ${position}!`);
-        });
-    }
-
-    private previousTrack() {
-        this.player.previousTrack().then(() => {
-            console.log('Set to previous track!');
-        });
-    }
-
-    private nextTrack() {
-        this.player.nextTrack().then(() => {
-            console.log('Skipped to next track!');
         });
     }
 }
